@@ -13,7 +13,13 @@ page.setPage = function(newPage) {
         $('a[data-nav-alternative="' + page.currentPage + '"]').parent().attr('class', '');
         page.currentPage = newPage;
         $('a[data-nav-alternative="' + page.currentPage + '"]').parent().attr('class', 'active');
-        
+        if(es.theme === 1){
+           es.theme = 0;
+           es.updateTheme();
+        } else {
+            es.theme = 1;
+            es.updateTheme();
+        }
 
         page.loaded(newPage);
     });
