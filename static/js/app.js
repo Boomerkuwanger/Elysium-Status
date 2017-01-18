@@ -252,10 +252,10 @@ function getLastUpdated(lastUpdated) {
 es.updateTheme = function(){
     if (es.theme === 1) {
         $('.container-fluid').css("background-color", "black");
-        $('#services-status-table').css("background-color", "black");
-        $('#btn_overview').css("background-color", "black");
-        $('#btn_realmdetails').css("background-color", "black");
-        $('#pageServerDetails').css("background-color", "black");
+        $('#services-status-table').css("background-color", "#080808");
+        $('#btn_overview').css("background-color", "#080808");
+        $('#btn_realmdetails').css("background-color", "#080808");
+        $('#pageServerDetails').css("background-color", "#080808");
         $('iframe').css("opacity", 0.5);
         $('.dark_theme').html('Light Theme');
         es.theme = 0;
