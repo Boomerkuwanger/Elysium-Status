@@ -3,6 +3,7 @@ var ElysiumStatus = {
     data: null,
     queueData: null,
     queueTimeout: null,
+    theme: 1,
 
     /// Language ///
     language: {
@@ -248,11 +249,30 @@ function getLastUpdated(lastUpdated) {
 
 }
 
-
+es.updateTheme = function(){
+    if (es.theme === 1) {
+        $('.container-fluid').css("background-color", "black");
+        $('#services-status-table').css("background-color", "black");
+        $('#btn_overview').css("background-color", "black");
+        $('#btn_realmdetails').css("background-color", "black");
+        $('#pageServerDetails').css("background-color", "black");
+        $('iframe').css("opacity", 0.5);
+        $('.dark_theme').html('Light Theme');
+        es.theme = 0;
+    } else {
+        $('.container-fluid').css("background-color", "#EEEEEE");
+        $('#services-status-table').css("background-color", "white");
+        $('#btn_overview').css("background-color", "white");
+        $('#btn_realmdetails').css("background-color", "white");
+        $('#pageServerDetails').css("background-color", "white");
+        $('iframe').css("opacity", 1);
+        $('.dark_theme').html('Dark Theme');
+        es.theme = 1;
+    }
+}
 
 $(document).ready(function(){
 
-    
 
     
 
@@ -293,6 +313,7 @@ $(document).ready(function(){
     //Binds
     $('#btn_overview').on('click', {}, function(){ page.setPage('overview'); });
     $('#btn_realmdetails').on('click', {}, function(){ page.setPage('realmdetails'); });
+    $('a.dark_theme').on('click', {}, es.updateTheme);
 
 });
 
